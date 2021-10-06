@@ -12,6 +12,8 @@ import Nav from "react-bootstrap/Nav"
 import "./App.css";
 import Footer from "./components/Footer"
 import HomePage from "./pages/HomePage"
+import SignInPage from "./pages/SignInPage"
+import ListsPage from "./pages/ListsPage"
 
 class App extends react.Component {
 
@@ -20,13 +22,21 @@ class App extends react.Component {
     this.state = {
       Title: "Netpix",
       headerLinks: [
-        {Title: "home", paths: "/"},
-        {Title: "Sign In", paths: "/Sign-In"},
-        {Title: "My Lists", paths: "/My-Lists"}
+        {title: "Home", paths: "/"},
+        {title: "Sign-In", paths: "/Sign-In"},
+        {title: "My-Lists", paths: "/My-Lists"}
       ],
       home: {
-        Title: ""
+        title: "Netpix!",
+        subTitle: "What to watch next, made easy!",
+        text: "Create a custom list from thousands of movies and let us choose what you watch next!"
+      },
+      signIn: {
+        title: "Netpix!",
+        subTitle: "What to watch next, made easy!",
+        text: "Create a custom list from thousands of movies and let us choose what you watch next!"
       }
+
     }
   }
 
@@ -40,14 +50,16 @@ class App extends react.Component {
             <Navbar.Toggle className="border-0" aria-controls="navbar-toggle"/>
             <Navbar.Collapse id="navbar-toggle">
               <Nav className="ml-auto">
-                <Link className="nav-link" to="/">Home</Link>
-                <Link className="nav-link" to="Sign-In">Sign In</Link>
+                <Link className="nav-link" to="Home">Home</Link>
+                <Link className="nav-link" to="/">Sign In</Link>
                 <Link className="nav-link" to="My-Lists">My Lists</Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
 
-          <Route path="/" exact render={() => <HomePage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />} />
+          <Route path="/Home" exact render={() => <HomePage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />} />
+          <Route path="/" render={() => <SignInPage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />} />
+          <Route path="/My-Lists" render={() => <ListsPage/>} />
           <Footer/>
           
         </Container>
