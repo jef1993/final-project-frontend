@@ -11,6 +11,7 @@ import Nav from "react-bootstrap/Nav"
 
 import "./App.css";
 import Footer from "./components/Footer"
+import HomePage from "./pages/HomePage"
 
 class App extends react.Component {
 
@@ -46,6 +47,7 @@ class App extends react.Component {
             </Navbar.Collapse>
           </Navbar>
 
+          <Route path="/" exact render={() => <HomePage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />} />
           <Footer/>
           
         </Container>

@@ -9,6 +9,9 @@ function Footer() {
                     <Col className="p-0" md={3} sm={12}>
                         Team Extreme
                     </Col>
+                    <Col className="p-0 justify-content-end" md={3}>
+                        TM, Copyrighted, shotgunned, dibsed.  
+                    </Col>
                 </Row>
             </Container>
         </footer>
