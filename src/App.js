@@ -17,9 +17,30 @@ import ListsPage from "./pages/ListsPage"
 
 class App extends react.Component {
 
+  // componentDidMount(
+  //   getMovies = async () => {
+  //     const response = await fetch(
+  //       "https://api.themoviedb.org/3/movie/550?api_key=b7cb96b2c3e86cd23a777c56ffafe65c"
+  //     )
+  //     const data = await response.json()
+  //     console.log(data)
+  //   }
+  // )
+
+  componentDidMount() {
+    fetch(
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=b7cb96b2c3e86cd23a777c56ffafe65c&language=en-US&page=1"
+    ).then(response => response.json()).then(data => this.setState({
+      data: data.results.map(x => ({...x, selected: false}))
+    }))
+  }
+
   constructor(props) {
     super(props)
     this.state = {
+
+      data: [],
+
       Title: "Netpix",
       headerLinks: [
         {title: "Home", paths: "/"},
@@ -57,8 +78,8 @@ class App extends react.Component {
             </Navbar.Collapse>
           </Navbar>
 
-          <Route path="/Home" exact render={() => <HomePage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />} />
-          <Route path="/" render={() => <SignInPage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />} />
+          <Route path="/Home" render={() => <HomePage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} data={this.state.data} />} />
+          <Route path="/" exact render={() => <SignInPage title={this.state.home.title} subTitle={this.state.home.subTitle} text={this.state.home.text} />} />
           <Route path="/My-Lists" render={() => <ListsPage/>} />
           <Footer/>
           

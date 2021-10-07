@@ -5,7 +5,7 @@ import Carousel from "../components/Carousel"
 function HomePage(props) {
     return(
         <div>
-            <Carousel className="flex-direction: row-reverse"/>
+            <Carousel className="flex-direction: row-reverse" data={props.data}/>
         </div>
     )
 }
