@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-family: "Lato", sans-serif;
+  background-image: linear-gradient(
+    to right,
+    $color-gradient-brown,
+    $color-gradient-blue
+  );
+  min-height: 100vh;
+  height: auto;
+  color: $color-white-1;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  margin: 0 25px;
+  background-color: khaki;
+}
