@@ -1,0 +1,37 @@
+@mixin logo {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 5px;
+}
+
+@mixin flex-center($dir) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin input {
+  border: 2px solid $color-white-1;
+  background-color: $color-white-2;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: $color-black-1;
+  padding: 0 20px;
+
+  &::placeholder {
+    font-weight: 300;
+    color: $color-grey-2;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid $color-grey;
+
+    &:invalid {
+      border-color: $color-error;
+    }
+  }
+}
