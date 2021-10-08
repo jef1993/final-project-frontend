@@ -5,9 +5,10 @@ import Card from "../components/Card"
 // import matrix from "../assets/Images/matrix.jpg"
 // import Duck from "../assets/Images/Duck.jpg"
 // import fishbowl from "../assets/Images/fishbowl.jpg"
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Carousel,} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Carousel extends React.Component {
+class MovieLists extends React.Component {
 
     constructor(props) {
         super(props)
@@ -67,13 +68,20 @@ class Carousel extends React.Component {
 
     render() {
         return(
-            <Container fluid={true}>
-                <Row className="justify-content-around">
+
+            <Carousel>
+                <Carousel.Item>
                     {this.makeItems(this.state.items)}
-                </Row>
-            </Container>
+                </Carousel.Item>
+            </Carousel>
+
+            // <Container fluid={true}>
+            //     <Row className="justify-content-around">
+            //         {this.makeItems(this.state.items)}
+            //     </Row>
+            // </Container>
         )
     }
 }
 
-export default Carousel
+export default MovieLists
