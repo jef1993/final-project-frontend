@@ -74,3 +74,13 @@
   color: $color-white-1;
   text-transform: uppercase;
 }
+
+
+@mixin main-grid {
+  display: grid;
+  grid-template-rows: repeat(10, 30px);
+  grid-template-columns: minmax(0px, 120px) 1fr minmax(0px, 120px);
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  
+}

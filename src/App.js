@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import Navbar from "react-bootstrap/Navbar";
 // import Nav from "react-bootstrap/Nav";
 
+import { trendingMovie } from "./utils/index";
+
 import "./App.css";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
@@ -12,6 +14,7 @@ import ListsPage from "./pages/ListsPage";
 
 import { Banner2 } from "./components/Banner";
 import { Overlay } from "./components/Overlay";
+import { List } from "./components/List";
 
 import { toggleOverlay } from "./functions";
 
@@ -116,6 +119,8 @@ import { toggleOverlay } from "./functions";
 // }
 
 export function App2() {
+  const [trending, setTrending] = useState("");
+
   const [curUser, setCurUser] = useState("");
 
   const navSwitch = () => {
@@ -169,6 +174,14 @@ export function App2() {
                 }}
                 linkTo="/"
               />
+            </Route>
+          </Switch>
+          <Switch>
+            <Route exact path="/">
+              <List />
+              <List />
+              <List />
+              <List />
             </Route>
           </Switch>
         </div>
