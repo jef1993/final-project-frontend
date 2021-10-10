@@ -130,11 +130,14 @@ export function App2() {
     return obj;
   };
 
-  const loginHandler = () => {
+  const userHandler = () => {
     if (curUser === "") {
       toggleOverlay();
     }
   };
+  const loginHandler = () => {};
+
+  const registerHandler = () => {};
 
   const logoutHandler = () => {
     setCurUser("");
@@ -143,8 +146,7 @@ export function App2() {
   return (
     <Router>
       <div className="App">
-        {/* <div className="overlay__mask"></div> */}
-        <Overlay />
+        <Overlay onSignIn={loginHandler} onRegister={registerHandler} />
 
         <div className="main">
           <Switch>
@@ -154,7 +156,7 @@ export function App2() {
                 iconName={navSwitch().iconName}
                 linkTo={navSwitch().path}
                 userNameTop={curUser}
-                navBtn={loginHandler}
+                navBtn={userHandler}
               />
             </Route>
             <Route path="/account">
