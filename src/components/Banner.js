@@ -4,8 +4,12 @@ import { Jumbotron } from "reactstrap";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { MovieSearch } from "./MovieSearch";
+import { UserMenu } from "./UserMenu";
+import { useHistory } from "react-router-dom";
 
 function Banner(props) {
   return (
@@ -28,67 +32,6 @@ function Banner(props) {
     </Jumbotron>
   );
 }
-// export const Banner2 = (props) => {
-//   return (
-//     <div className="banner bg-1">
-//       <div className="navbar">
-//         <div className="logo">MOVILIST</div>
-//         <div className="nav">
-//           <Switch>
-//             <Route exact path="/">
-//               <div
-//                 className="nav__icon login"
-//                 onClick={() => {
-//                   props.onclick();
-//                 }}
-//               >
-//                 <Icon icon={`mdi:${props.iconName}`} color="#eaeef0" height="48" />
-//               </div>
-//             </Route>
-//             <Route path="/user">
-//               <div
-//                 className="nav__icon logout"
-//                 onClick={() => {
-//                   props.onProfile();
-//                 }}
-//               >
-//                 <Icon icon="mdi:logout-variant" color="#eaeef0" height="48" />
-//               </div>
-//             </Route>
-//           </Switch>
-//         </div>
-//       </div>
-//       <div className="banner__box">
-//         <Switch>
-//           <Route path="/">
-//             <h2 className="banner__title">
-//               Discover millions movies and TV shows
-//             </h2>
-//             <form
-//               className="search"
-//               onSubmit={() => {
-//                 console.log("search movies");
-//               }}
-//             >
-//               <input
-//                 type="text"
-//                 placeholder="Search movies and TV shows here"
-//                 className="search__input"
-//               ></input>
-//               <button type="submit" className="search__btn">
-//                 <Icon
-//                   icon="mdi:magnify"
-//                   color="rgb(168, 166, 162)"
-//                   height="36"
-//                 />
-//               </button>
-//             </form>
-//           </Route>
-//         </Switch>
-//       </div>
-//     </div>
-//   );
-// };
 
 export const Banner2 = (props) => {
   return (
@@ -96,44 +39,26 @@ export const Banner2 = (props) => {
       <div className="navbar">
         <div className="logo">MOVILIST</div>
         <div className="nav">
-          <div
-            className="nav__icon login"
-            onClick={() => {
-              props.onClick();
-            }}
-          >
-            <Icon icon={`mdi:${props.iconName}`} color="#eaeef0" height="48" />
-          </div>
+          <h3 className="nav__user">{props.userNameTop}</h3>
+          <Link className="nav__link" to={props.linkTo} onClick={props.navBtn}>
+            <Icon
+              className="nav__icon"
+              icon={`mdi:${props.iconName}`}
+              color="#eaeef0"
+              height="48"
+            />
+          </Link>
         </div>
       </div>
-      <div className="banner__box">
-        <Switch>
-          <Route path="/">
-            <h2 className="banner__title">
-              Discover millions movies and TV shows
-            </h2>
-            <form
-              className="search"
-              onSubmit={() => {
-                console.log("search movies");
-              }}
-            >
-              <input
-                type="text"
-                placeholder="Search movies and TV shows here"
-                className="search__input"
-              ></input>
-              <button type="submit" className="search__btn">
-                <Icon
-                  icon="mdi:magnify"
-                  color="rgb(168, 166, 162)"
-                  height="36"
-                />
-              </button>
-            </form>
-          </Route>
-        </Switch>
-      </div>
+
+      <Switch>
+        <Route exact path="/">
+          <MovieSearch />
+        </Route>
+        <Route path="/account">
+          <UserMenu userName={props.userName} resetUser={props.resetUser} />
+        </Route>
+      </Switch>
     </div>
   );
 };

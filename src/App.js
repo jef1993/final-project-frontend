@@ -11,6 +11,9 @@ import SignInPage from "./pages/SignInPage";
 import ListsPage from "./pages/ListsPage";
 
 import { Banner2 } from "./components/Banner";
+import { Overlay } from "./components/Overlay";
+
+import { toggleOverlay } from "./functions";
 
 // class App extends react.Component {
 // componentDidMount(
@@ -113,21 +116,62 @@ import { Banner2 } from "./components/Banner";
 // }
 
 export function App2() {
-  const [curUser, setCurUser] = useState();
+  const [curUser, setCurUser] = useState("");
+
+  const navSwitch = () => {
+    const obj = {};
+    if (curUser === "") {
+      obj.iconName = "login-variant";
+      obj.path = "/";
+    } else {
+      obj.iconName = "account-box-outline";
+      obj.path = `/account`;
+    }
+    return obj;
+  };
+
+  const loginHandler = () => {
+    if (curUser === "") {
+      toggleOverlay();
+    }
+  };
+
+  const logoutHandler = () => {
+    setCurUser("");
+  };
+
   return (
-    <div className="App">
-      <div className="main">
-        <Router>
-          <Banner2
-            bgImg="bg-1"
-            iconName="login-variant"
-            onClick={() => {
-              console.log("loggin in");
-            }}
-          />
-        </Router>
+    <Router>
+      <div className="App">
+        {/* <div className="overlay__mask"></div> */}
+        <Overlay />
+
+        <div className="main">
+          <Switch>
+            <Route exact path="/">
+              <Banner2
+                bgImg="bg-1"
+                iconName={navSwitch().iconName}
+                linkTo={navSwitch().path}
+                userNameTop={curUser}
+                navBtn={loginHandler}
+              />
+            </Route>
+            <Route path="/account">
+              <Banner2
+                bgImg="bg-2"
+                iconName="backspace-outline"
+                userName={curUser}
+                resetUser={() => {
+                  logoutHandler();
+                }}
+                linkTo="/"
+              />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

@@ -35,3 +35,35 @@
     }
   }
 }
+
+@mixin input-2 {
+  border: 2px solid $color-white-1;
+  background-color: $color-white-2;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  color: $color-black-1;
+  padding: 0 20px;
+
+  &::placeholder {
+    font-weight: 300;
+    color: $color-grey-2;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid $color-grey;
+
+    &:invalid {
+      border-color: $color-error;
+    }
+  }
+}
+
+@mixin font-btn {
+  font-family: "Lato", sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+}

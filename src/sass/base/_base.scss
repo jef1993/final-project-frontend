@@ -18,6 +18,8 @@ body {
   min-height: 100vh;
   height: auto;
   color: $color-white-1;
+  display: flex;
+  flex-direction: column;
 }
 
 .main {
@@ -32,4 +34,13 @@ body {
   @media screen and (max-width: 600px) {
     margin: 0;
   }
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.input {
+  @include input;
 }
