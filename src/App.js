@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import Container from "react-bootstrap/Container";
 // import Navbar from "react-bootstrap/Navbar";
@@ -178,7 +178,7 @@ export function App2() {
           </Switch>
           <Switch>
             <Route exact path="/">
-              <List />
+              <List fetchFunc={trendingMovie} title="Trending" />
               <List />
               <List />
               <List />

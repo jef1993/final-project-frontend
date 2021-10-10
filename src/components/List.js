@@ -1,18 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import { trendingMovie } from "../utils/index";
+// import { trendingMovie } from "../utils/index";
 
-export const List = (props) => {
+export const List = ({ fetchFunc, title }) => {
   const [data, setData] = useState("");
 
+  let method = fetchFunc;
+  const getMethod = () => {
+    if (typeof method === "function") {
+      method = fetchFunc(setData);
+    }
+    return method;
+  };
+
   useEffect(() => {
-    trendingMovie(setData);
-    console.log(data.results[0].poster_path);
-  }, [setData]);
+    getMethod();
+  }, []);
 
   return (
     <div className="list">
-      <h3 className="list__title">{props.title}</h3>
+      <h3 className="list__title">{title}</h3>
 
       <div className="list__btn--prev">
         <Icon
@@ -27,9 +34,9 @@ export const List = (props) => {
       </div>
       <ul className="list__posters">
         {data !== ""
-          ? data.results.map((obj) => {
+          ? data.results.map((obj, i) => {
               return (
-                <li className="list__item">
+                <li className="list__item" key={i}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${obj.poster_path}`}
                     alt="img"
@@ -38,16 +45,6 @@ export const List = (props) => {
               );
             })
           : ""}
-
-        {/* <li className="list__item">item</li>
-        <li className="list__item">item</li>
-        <li className="list__item">item</li>
-        <li className="list__item">item</li>
-        <li className="list__item">item</li>
-        <li className="list__item">item</li>
-        <li className="list__item">item</li>
-        <li className="list__item">item</li>
-        <li className="list__item">item</li> */}
       </ul>
       <div className="list__btn--next">
         <Icon
