@@ -28,7 +28,7 @@ export const Overlay = (props) => {
                 type="text"
                 placeholder="Username"
                 onChange={(e) => {
-                  props.usernameChange(e.target.value);
+                  // props.usernameChange(e.target.value);
                 }}
               ></input>
               <input
@@ -36,7 +36,7 @@ export const Overlay = (props) => {
                 type="password"
                 placeholder="Password"
                 onChange={(e) => {
-                  props.passwordChange(e.target.value);
+                  // props.passwordChange(e.target.value);
                 }}
               ></input>
             </div>
@@ -63,7 +63,7 @@ export const Overlay = (props) => {
                 type="text"
                 placeholder="Username"
                 onChange={(e) => {
-                  props.usernameChange(e.target.value);
+                  // props.usernameChange(e.target.value);
                 }}
               ></input>
               <input
@@ -71,7 +71,7 @@ export const Overlay = (props) => {
                 type="email"
                 placeholder="email"
                 onChange={(e) => {
-                  props.emailChange(e.target.value);
+                  // props.emailChange(e.target.value);
                 }}
               ></input>
               <input
@@ -79,7 +79,7 @@ export const Overlay = (props) => {
                 type="password"
                 placeholder="Password"
                 onChange={(e) => {
-                  props.passwordChange(e.target.value);
+                  // props.passwordChange(e.target.value);
                 }}
               ></input>
             </div>

@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 export const MovieSearch = () => {
   return (
     <div className="banner__box">
-      <h2 className="banner__title">Discover millions movies and TV shows</h2>
+      <h2 className="banner__title">Discover millions movies right here</h2>
       <form
         className="search"
         onSubmit={() => {
@@ -13,7 +13,7 @@ export const MovieSearch = () => {
       >
         <input
           type="text"
-          placeholder="Search movies and TV shows here"
+          placeholder="Search movies by name"
           className="search__input"
         ></input>
         <button type="submit" className="search__btn">

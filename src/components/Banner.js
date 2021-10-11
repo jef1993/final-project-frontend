@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { MovieSearch } from "./MovieSearch";
 import { UserMenu } from "./UserMenu";
+import { DetailsTop, DetailsBackdrop } from "./Details";
 import { useHistory } from "react-router-dom";
 
 function Banner(props) {
@@ -36,6 +37,12 @@ function Banner(props) {
 export const Banner2 = (props) => {
   return (
     <div className={`banner ${props.bgImg}`}>
+      <Switch>
+        <Route path="/movies">
+          <DetailsBackdrop />
+        </Route>
+      </Switch>
+
       <div className="navbar">
         <div className="logo">MOVILIST</div>
         <div className="nav">
@@ -57,6 +64,9 @@ export const Banner2 = (props) => {
         </Route>
         <Route path="/account">
           <UserMenu userName={props.userName} resetUser={props.resetUser} />
+        </Route>
+        <Route>
+          <DetailsTop />
         </Route>
       </Switch>
     </div>

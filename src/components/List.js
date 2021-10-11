@@ -85,7 +85,7 @@ export const List = ({ fetchFunc, title }) => {
         {data !== ""
           ? data.map((obj, i) => {
               return (
-                <a className="list__item" key={i}>
+                <a className="list__item" key={i} href={`/movies/${obj.id}`}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${obj.poster_path}`}
                     alt="img"

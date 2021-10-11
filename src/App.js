@@ -20,6 +20,7 @@ import ListsPage from "./pages/ListsPage";
 import { Banner2 } from "./components/Banner";
 import { Overlay } from "./components/Overlay";
 import { List } from "./components/List";
+import { DetailsBottom } from "./components/Details";
 
 import { toggleOverlay } from "./functions";
 
@@ -180,6 +181,17 @@ export function App2() {
                 linkTo="/"
               />
             </Route>
+            <Route path="/movies">
+              <Banner2
+                bgImg="banner__backdrop"
+                iconName="backspace-outline"
+                userName={curUser}
+                resetUser={() => {
+                  logoutHandler();
+                }}
+                linkTo="/"
+              />
+            </Route>
           </Switch>
           <Switch>
             <Route exact path="/">
@@ -187,6 +199,9 @@ export function App2() {
               <List fetchFunc={nowPlaying} title="Now in Cinema" />
               <List fetchFunc={topRated} title="UK's favourite" />
               <List fetchFunc={upComingMovies} title="upcoming" />
+            </Route>
+            <Route path="/movies">
+              <DetailsBottom />
             </Route>
           </Switch>
         </div>

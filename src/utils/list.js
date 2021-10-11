@@ -10,7 +10,6 @@ export const trendingMovies = async (setter) => {
       }
     );
     const data = await response.json();
-    // console.log(`${process.env.API_KEY}`);
     await setter(data.results);
   } catch (error) {
     console.log(error);
@@ -57,6 +56,21 @@ export const upComingMovies = async (setter) => {
     );
     const data = await response.json();
     await setter(data.results);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const movieDetails = async (setter, movieID) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieID}?api_key=b7cb96b2c3e86cd23a777c56ffafe65c`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    await setter(data);
   } catch (error) {
     console.log(error);
   }
