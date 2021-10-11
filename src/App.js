@@ -4,7 +4,12 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 // import Navbar from "react-bootstrap/Navbar";
 // import Nav from "react-bootstrap/Nav";
 
-import { trendingMovie } from "./utils/index";
+import {
+  trendingMovies,
+  nowPlaying,
+  topRated,
+  upComingMovies,
+} from "./utils/list";
 
 import "./App.css";
 import Footer from "./components/Footer";
@@ -17,6 +22,8 @@ import { Overlay } from "./components/Overlay";
 import { List } from "./components/List";
 
 import { toggleOverlay } from "./functions";
+
+require("dotenv").config();
 
 // class App extends react.Component {
 // componentDidMount(
@@ -119,8 +126,6 @@ import { toggleOverlay } from "./functions";
 // }
 
 export function App2() {
-  const [trending, setTrending] = useState("");
-
   const [curUser, setCurUser] = useState("");
 
   const navSwitch = () => {
@@ -178,10 +183,10 @@ export function App2() {
           </Switch>
           <Switch>
             <Route exact path="/">
-              <List fetchFunc={trendingMovie} title="Trending" />
-              <List />
-              <List />
-              <List />
+              <List fetchFunc={trendingMovies} title="Trending" />
+              <List fetchFunc={nowPlaying} title="Now in Cinema" />
+              <List fetchFunc={topRated} title="UK's favourite" />
+              <List fetchFunc={upComingMovies} title="upcoming" />
             </Route>
           </Switch>
         </div>

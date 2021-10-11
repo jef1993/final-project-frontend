@@ -4,11 +4,12 @@
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba($color-black-2, 0.6);
+  background-color: rgba($color-black-2, 0.75);
   overflow: hidden;
   backdrop-filter: blur(3px);
   transition: all 0.3s;
   @include flex-center(row);
+  z-index: 4;
 
   &__bg {
     position: fixed;
@@ -16,8 +17,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-
-    z-index: 1;
+    z-index: 5;
   }
   &__container {
     width: 480px;
