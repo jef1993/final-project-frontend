@@ -39,7 +39,6 @@ export const DetailsBackdrop = (props) => {
 export const DetailsBottom = (props) => {
   const movieID = window.location.pathname.split("/")[2];
   const [data, setData] = useState("");
-  const [actor, getActor] = useState("");
 
   useEffect(() => {
     movieDetails(setData, movieID);

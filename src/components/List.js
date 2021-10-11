@@ -46,8 +46,6 @@ export const List = ({ fetchFunc, title }) => {
         }%)`;
       });
     }
-    // console.log(moveDistance);
-    // console.log(posters.querySelector(".list__item").style.transform);
   };
 
   return (

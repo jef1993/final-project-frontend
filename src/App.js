@@ -12,10 +12,10 @@ import {
 } from "./utils/list";
 
 import "./App.css";
-import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
-import SignInPage from "./pages/SignInPage";
-import ListsPage from "./pages/ListsPage";
+// import Footer from "./components/Footer";
+// import HomePage from "./pages/HomePage";
+// import SignInPage from "./pages/SignInPage";
+// import ListsPage from "./pages/ListsPage";
 
 import { Banner2 } from "./components/Banner";
 import { Overlay } from "./components/Overlay";
