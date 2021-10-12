@@ -1,0 +1,121 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba($color-black-2, 0.75);
+  overflow: hidden;
+  backdrop-filter: blur(3px);
+  transition: all 0.3s;
+  @include flex-center(row);
+  z-index: 4;
+
+  &__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+  }
+  &__container {
+    width: 480px;
+    height: 600px;
+    border-radius: 15px;
+    border: 2px solid $color-grey-2;
+    box-shadow: 0 10px 20px 5px rgba($color-black-2, 0.5);
+
+    background-image: linear-gradient(
+      to bottom,
+      $color-gradient-blue,
+      $color-gradient-brown
+    );
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    row-gap: 15px;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  &__title {
+    grid-row: 2 / span 1;
+    text-align: center;
+  }
+
+  &__icon {
+    & span {
+      letter-spacing: 0;
+      font-weight: 300;
+      font-size: 36px;
+      color: $color-grey-2;
+      padding-left: 5px;
+    }
+  }
+
+  &__content {
+    grid-row: 3/-1;
+    width: 480px;
+    transition: all ease 0.15s;
+    @include flex-center(column);
+    justify-content: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__inputs {
+    @include flex-center(column);
+    min-height: 200px;
+  }
+
+  &__input {
+    @include input-2;
+    height: 40px;
+    width: 350px;
+    padding-left: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__btn {
+    @include font-btn;
+    margin-top: 60px;
+    padding: 8px 25px;
+    border-radius: 100px;
+    border: 2px solid transparent;
+    background-color: $color-primary;
+    transition: all 0.1s;
+
+    &:hover {
+      border: 2px solid $color-white-1;
+      background-color: transparent;
+      transform: scale(1.03);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__link {
+    font-size: 20px;
+    font-weight: 300;
+    & span {
+      font-size: 24px;
+      color: $color-primary;
+      margin-left: 5px;
+      cursor: pointer;
+
+      &:hover {
+        font-weight: 500;
+        letter-spacing: -0.25px;
+      }
+    }
+  }
+}
