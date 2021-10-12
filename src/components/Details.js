@@ -3,6 +3,7 @@ import { movieDetails, movieCredits, movieProviders } from "../utils/list";
 import { Provider } from "./Provider";
 import { Icon } from "@iconify/react";
 import bd_ph from "../assets/bd_ph.jpg";
+import { addToList, fetchUserMovies } from "../utils";
 
 export const DetailsTop = (props) => {
   const movieID = window.location.pathname.split("/")[2];
@@ -80,10 +81,6 @@ export const DetailsBottom = (props) => {
 
   const getProviders = (arr, type) => {
     if (providers) {
-      //   console.log("buy", providers.buy);
-      //   console.log("rent", providers.rent);
-      //   console.log("stream", providers.flatrate);
-
       const icons = (arr, type) => {
         return arr
           ? arr.map((obj) => {
@@ -102,6 +99,11 @@ export const DetailsBottom = (props) => {
     }
   };
 
+  const addListHandler = async (e) => {
+    e.preventDefault();
+    await addToList(data, props.curUser);
+    fetchUserMovies(props.curUser);
+  };
   return (
     <div className="info">
       <div className="info__area">
@@ -147,7 +149,12 @@ export const DetailsBottom = (props) => {
               <Icon icon="mdi:open-in-new" color="#eaeef0" height="40" />
             </a>
             <div className="info__add">
-              <Icon icon="mdi:plus-box-outline" color="#eaeef0" height="40" />
+              <Icon
+                icon="mdi:plus-box-outline"
+                color="#eaeef0"
+                height="40"
+                onClick={addListHandler}
+              />
             </div>
           </div>
         </div>
