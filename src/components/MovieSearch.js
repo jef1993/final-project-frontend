@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useHistory } from "react-router-dom";
 
 export const MovieSearch = (props) => {
   const history = useHistory();
   const historyBtn = (path) => history.push(`${path}`);
+
+  const [query, setQuery] = useState("");
 
   return (
     <div className="banner__box">
@@ -13,7 +15,7 @@ export const MovieSearch = (props) => {
         className="search"
         onSubmit={(e) => {
           e.preventDefault();
-          historyBtn(`/search/${props.query}`);
+          historyBtn(`/search/${query}`);
         }}
       >
         <input
@@ -21,7 +23,7 @@ export const MovieSearch = (props) => {
           placeholder="Search movies by name"
           className="search__input"
           onChange={(e) => {
-            props.queryChange(e.target.value);
+            setQuery(e.target.value);
           }}
         ></input>
         <button type="submit" className="search__btn">
