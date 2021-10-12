@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { movieDetails } from "../utils/list";
+import { movieDetails, movieCredits, movieProviders } from "../utils/list";
+import { Provider } from "./Provider";
 import { Icon } from "@iconify/react";
 
 export const DetailsTop = (props) => {
@@ -8,7 +9,7 @@ export const DetailsTop = (props) => {
 
   useEffect(() => {
     movieDetails(setData, movieID);
-  }, []);
+  }, [setData, movieID]);
 
   return (
     <div className="banner__box details">
@@ -24,7 +25,7 @@ export const DetailsBackdrop = (props) => {
 
   useEffect(() => {
     movieDetails(setData, movieID);
-  }, []);
+  }, [setData, movieID]);
 
   return (
     <div className="banner__backdrop">
@@ -39,10 +40,14 @@ export const DetailsBackdrop = (props) => {
 export const DetailsBottom = (props) => {
   const movieID = window.location.pathname.split("/")[2];
   const [data, setData] = useState("");
+  const [credits, setCredits] = useState("");
+  const [providers, setProviders] = useState("");
 
   useEffect(() => {
     movieDetails(setData, movieID);
-  }, [setData]);
+    movieCredits(setCredits, movieID);
+    movieProviders(setProviders, movieID);
+  }, [setData, setCredits, setProviders, movieID]);
 
   const getRuntime = () => {
     const runtime = Number(data.runtime);
@@ -51,7 +56,45 @@ export const DetailsBottom = (props) => {
   };
 
   const getGenres = () => {
-    if (data.genres) return `${data.genres[0].name}, ${data.genres[1].name}`;
+    if (data.genres) {
+      return data.genres
+        .map((el) => el.name)
+        .slice(0, 3)
+        .join(", ");
+    }
+  };
+
+  const getCredits = () => {
+    if (credits) {
+      return credits
+        .map((el) => el.name)
+        .slice(0, 4)
+        .join(", ");
+    }
+  };
+
+  const getProviders = (arr, type) => {
+    if (providers) {
+      //   console.log("buy", providers.buy);
+      //   console.log("rent", providers.rent);
+      //   console.log("stream", providers.flatrate);
+
+      const icons = (arr, type) => {
+        return arr
+          ? arr.map((obj) => {
+              return (
+                <Provider
+                  src={obj.logo_path}
+                  name={obj.provider_name}
+                  type={`${type}`}
+                />
+              );
+            })
+          : "";
+      };
+
+      return icons(arr, type);
+    }
   };
 
   return (
@@ -76,7 +119,7 @@ export const DetailsBottom = (props) => {
           </div>
           <div className="info__starring">
             <h3 className="info__title">Starring</h3>
-            <p className="info__content"></p>
+            <p className="info__content">{getCredits()}</p>
           </div>
           <div className="info__length">
             <h3 className="info__title">Length</h3>
@@ -88,14 +131,18 @@ export const DetailsBottom = (props) => {
           </div>
           <div className="info__avaliable">
             <h3 className="info__title">Avaliable on:</h3>
-            <p className="info__content"></p>
+            <p className="info__content provider__container">
+              {getProviders(providers.flatrate, "stream")}
+              {getProviders(providers.buy, "buy")}
+              {getProviders(providers.rent, "rent")}
+            </p>
           </div>
           <div className="info__btns">
             <a className="info__link" href={data.homepage ? data.homepage : ""}>
-              <Icon icon="mdi:open-in-new" color="#eaeef0" height="48" />
+              <Icon icon="mdi:open-in-new" color="#eaeef0" height="40" />
             </a>
             <div className="info__add">
-              <Icon icon="mdi:plus-box-outline" color="#eaeef0" height="48" />
+              <Icon icon="mdi:plus-box-outline" color="#eaeef0" height="40" />
             </div>
           </div>
         </div>

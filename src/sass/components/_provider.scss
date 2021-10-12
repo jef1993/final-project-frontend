@@ -1,0 +1,89 @@
+.provider {
+  margin-top: 10px;
+  padding-right: 5px;
+  width: 60px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    .provider__name {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .provider__box {
+      border-color: $color-primary;
+    }
+
+    .provider__text {
+      background-color: $color-primary;
+    }
+  }
+
+  &__box {
+    width: inherit;
+    border: 2px solid $color-black-2;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__img {
+    height: 60px;
+    width: inherit;
+    padding: 0;
+    // border: 2px solid $color-black-2;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 12px;
+    width: inherit;
+    margin: 0;
+    padding: 0;
+    background-color: $color-black-2;
+    color: $color-white-1;
+    text-transform: uppercase;
+  }
+
+  &__name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 60px;
+    text-align: center;
+    font-size: 10px;
+    width: 60px;
+    background-color: $color-black-2;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    color: $color-white-2;
+    @include flex-center(row);
+  }
+
+  &__name-box {
+    font-weight: 500;
+    width: 50px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: auto;
+    max-height: 90px;
+    &::-webkit-scrollbar {
+      color: transparent;
+    }
+  }
+}

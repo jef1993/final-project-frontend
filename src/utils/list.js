@@ -79,6 +79,29 @@ export const movieDetails = async (setter, movieID) => {
 
 export const movieCredits = async (setter, movieID) => {
   try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=b7cb96b2c3e86cd23a777c56ffafe65c`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    await setter(data.cast);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const movieProviders = async (setter, movieID) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieID}/watch/providers?api_key=b7cb96b2c3e86cd23a777c56ffafe65c`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await response.json();
+    await setter(data.results["GB"]);
   } catch (error) {
     console.log(error);
   }
