@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import {
@@ -15,6 +15,7 @@ import { Overlay } from './components/Overlay';
 import { List } from './components/List';
 import { DetailsBottom } from './components/Details';
 import { toggleOverlay } from './functions';
+import { tokenLogin } from './utils';
 
 export function App() {
 	const [curUser, setCurUser] = useState('');
@@ -40,6 +41,10 @@ export function App() {
 	const logoutHandler = () => {
 		setCurUser('');
 	};
+
+  useEffect(() => {
+    tokenLogin(setCurUser)
+  }, [])
 
 	return (
 		<Router>
@@ -87,7 +92,7 @@ export function App() {
 							<List fetchFunc={upComingMovies} title='upcoming' />
 						</Route>
 						<Route path='/movies'>
-							<DetailsBottom />
+							<DetailsBottom curUser={curUser}/>
 						</Route>
 					</Switch>
 				</div>
