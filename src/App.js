@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
 import {
   trendingMovies,
   nowPlaying,
@@ -10,20 +10,34 @@ import {
 
 import "./App.css";
 
+import { logIn } from "./utils/index";
+
 import { Banner } from "./components/Banner";
 import { Overlay } from "./components/Overlay";
 import { List } from "./components/List";
 import { DetailsBottom } from "./components/Details";
 import { toggleOverlay } from "./functions";
+import { SearchResult } from "./components/SearchResult";
 
 export function App() {
   const [curUser, setCurUser] = useState("");
+  const [query, setQuery] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [newUsername, setNewUsername] = useState("");
+  const [newEmail, setNewEmail] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
   const navSwitch = () => {
+    const MyPath = () => {
+      return useLocation().pathname;
+    };
     const obj = {};
     if (curUser === "") {
       obj.iconName = "login-variant";
-      obj.path = "/";
+      obj.path = <MyPath />;
     } else {
       obj.iconName = "account-box-outline";
       obj.path = `/account`;
@@ -36,12 +50,20 @@ export function App() {
       toggleOverlay();
     }
   };
-  const loginHandler = () => {};
+  const loginHandler = (e) => {
+    e.preventdefault();
+    logIn(email, password, setCurUser);
+  };
 
   const registerHandler = () => {};
 
   const logoutHandler = () => {
     setCurUser("");
+  };
+
+  const queryChangeHandler = (input) => {
+    setQuery(input);
+    console.log(input);
   };
 
   return (
@@ -50,33 +72,57 @@ export function App() {
         <Overlay
           onSignIn={loginHandler}
           onRegister={registerHandler}
-          usernameChange={(e) => {
-            console.log(`username is ${e}!`);
+          emailChange={(input) => {
+            setEmail(input);
+            // console.log(input);
           }}
-          passwordChange={(e) => {
-            console.log(`password is ${e}!`);
+          passwordChange={(input) => {
+            setPassword(input);
+            // console.log(input);
           }}
-          emailChange={(e) => {
-            console.log(`email is ${e}!`);
+          newUsernameChange={(input) => {
+            setNewUsername(input);
+            // console.log(input);
+          }}
+          newEmailChange={(input) => {
+            setNewEmail(input);
+            // console.log(input);
+          }}
+          newPasswordChange={(input) => {
+            setNewPassword(input);
+            // console.log(input);
           }}
         />
 
         <div className="main">
           <Switch>
-            <Route exact path="/">
+            <Route exact path={["/", "/search"]}>
               <Banner
                 bgImg="bg-1"
                 iconName={navSwitch().iconName}
                 linkTo={navSwitch().path}
-                userNameTop={curUser}
+                userNameTop={curUser !== "" ? curUser.username : ""}
                 navBtn={userHandler}
+                query={query}
+                queryChange={queryChangeHandler}
+              />
+            </Route>
+            <Route path={["/search"]}>
+              <Banner
+                bgImg="bg-1"
+                iconName={navSwitch().iconName}
+                linkTo={navSwitch().path}
+                userNameTop={curUser !== "" ? curUser.username : ""}
+                navBtn={userHandler}
+                query={query}
+                queryChange={queryChangeHandler}
               />
             </Route>
             <Route path="/account">
               <Banner
                 bgImg="bg-2"
                 iconName="backspace-outline"
-                userName={curUser}
+                userName={curUser !== "" ? curUser.username : ""}
                 resetUser={() => {
                   logoutHandler();
                 }}
@@ -87,7 +133,7 @@ export function App() {
               <Banner
                 bgImg="banner__backdrop"
                 iconName="backspace-outline"
-                userName={curUser}
+                userName={curUser !== "" ? curUser.username : ""}
                 resetUser={() => {
                   logoutHandler();
                 }}
@@ -104,6 +150,9 @@ export function App() {
             </Route>
             <Route path="/movies">
               <DetailsBottom />
+            </Route>
+            <Route>
+              <SearchResult />
             </Route>
           </Switch>
         </div>

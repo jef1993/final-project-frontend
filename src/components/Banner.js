@@ -17,7 +17,9 @@ export const Banner = (props) => {
       </Switch>
 
       <div className="navbar">
-        <div className="logo">MOVILIST</div>
+        <Link className="logo" to="/">
+          MOVILIST
+        </Link>
         <div className="nav">
           <h3 className="nav__user">{props.userNameTop}</h3>
           <Link className="nav__link" to={props.linkTo} onClick={props.navBtn}>
@@ -32,8 +34,11 @@ export const Banner = (props) => {
       </div>
 
       <Switch>
-        <Route exact path="/">
-          <MovieSearch />
+        <Route exact path={["/"]}>
+          <MovieSearch queryChange={props.queryChange} query={props.query} />
+        </Route>
+        <Route path={["/search"]}>
+          <MovieSearch queryChange={props.queryChange} query={props.query} />
         </Route>
         <Route path="/account">
           <UserMenu userName={props.userName} resetUser={props.resetUser} />
