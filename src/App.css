@@ -454,7 +454,7 @@ body {
 .info__area {
   grid-area: 2/2/span 8/span 1;
   display: grid;
-  height: 410px;
+  height: 430px;
   grid-template-columns: minmax(0, 270px) 1fr;
   box-shadow: 0 15px 20px 5px rgba(17, 18, 19, 0.4);
 }
@@ -477,15 +477,15 @@ body {
 }
 .info__container {
   grid-column: 2/-1;
-  height: 410px;
+  height: 430px;
   width: 100%;
   background-image: linear-gradient(to bottom, rgba(43, 37, 36, 0.6), rgba(22, 25, 29, 0.6));
   display: grid;
   border: 2px solid #242527;
   box-sizing: border-box;
-  grid-template-rows: auto repeat(2, 3fr) 4fr;
+  grid-template-rows: auto repeat(2, 3fr) 5fr;
   grid-template-columns: 2fr 3fr 48px;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
 }
 .info__container * {
   display: flex;
@@ -516,7 +516,7 @@ body {
 }
 .info__overview .info__content {
   max-height: 100px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   overflow: auto;
 }
 @media screen and (max-width: 700px) {
@@ -546,18 +546,20 @@ body {
 }
 .info__avaliable {
   grid-area: 4/1/-1/span 2;
+  overflow: hidden;
 }
 .info__btns {
   grid-area: 2/3/-1/-1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  padding: 0;
 }
 .info__link {
   height: 40px;
   width: 40px;
   transition: all 0.1s;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .info__link:hover * {
   color: #ecb10c;
@@ -697,7 +699,7 @@ body {
 .provider {
   margin-top: 10px;
   padding-right: 5px;
-  width: 60px;
+  width: 48px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -724,13 +726,13 @@ body {
   position: relative;
 }
 .provider__img {
-  height: 60px;
+  height: 48px;
   width: inherit;
   padding: 0;
 }
 .provider__text {
   text-align: center;
-  font-size: 12px;
+  font-size: 10px;
   width: inherit;
   margin: 0;
   padding: 0;
@@ -742,10 +744,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 60px;
+  height: 48px;
   text-align: center;
-  font-size: 10px;
-  width: 60px;
+  font-size: 12px;
+  width: 48px;
   background-color: #111213;
   margin: auto;
   padding: 0;
@@ -773,6 +775,103 @@ body {
 }
 .provider__container::-webkit-scrollbar {
   color: transparent;
+}
+
+.search-result {
+  display: grid;
+  grid-template-rows: 50px auto;
+  grid-template-columns: minmax(48px, 140px) minmax(750px, 1fr) minmax(48px, 140px);
+  width: 100%;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+@media screen and (max-width: 1200px) {
+  .search-result {
+    grid-template-columns: minmax(48px, 96px) minmax(750px, 1fr) minmax(48px, 96px);
+  }
+}
+@media screen and (max-width: 900px) {
+  .search-result {
+    grid-template-columns: 36px 1fr 36px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .search-result {
+    grid-template-columns: 36px 1fr 36px;
+  }
+}
+.search-result__title {
+  grid-area: 1/2/span 1/span 1;
+  letter-spacing: 3px;
+}
+.search-result__posters {
+  grid-area: 2/2/-1/span 1;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 0;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+}
+@media screen and (max-width: 1500px) {
+  .search-result__posters {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .search-result__posters {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media screen and (max-width: 1050px) {
+  .search-result__posters {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media screen and (max-width: 900px) {
+  .search-result__posters {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .search-result__posters {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.search-result__posters:hover .search-result__item:not(:hover) {
+  opacity: 0.7;
+  transform: scale(0.96);
+}
+.search-result__posters:hover .search-result__item:not(:hover) * {
+  filter: grayscale(50%);
+}
+.search-result__item {
+  width: inherit;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  transition: all 0.1s;
+  z-index: 1;
+}
+.search-result__item:hover {
+  border: 2px solid #2d91da;
+}
+.search-result__item img {
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  height: 100%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -1,9 +1,12 @@
 .provider {
   margin-top: 10px;
   padding-right: 5px;
-  width: 60px;
+  width: 48px;
   overflow: hidden;
   cursor: pointer;
+
+  @media screen and (max-width: 1200px) {
+  }
 
   &:hover {
     .provider__name {
@@ -34,15 +37,14 @@
   }
 
   &__img {
-    height: 60px;
+    height: 48px;
     width: inherit;
     padding: 0;
-    // border: 2px solid $color-black-2;
   }
 
   &__text {
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     width: inherit;
     margin: 0;
     padding: 0;
@@ -55,10 +57,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 60px;
+    height: 48px;
     text-align: center;
-    font-size: 10px;
-    width: 60px;
+    font-size: 12px;
+    width: 48px;
     background-color: $color-black-2;
     margin: auto;
     padding: 0;

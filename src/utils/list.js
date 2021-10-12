@@ -115,8 +115,8 @@ export const searchMovies = async (setter, query) => {
         method: "GET",
       }
     );
-    const data = await response.join();
-    await setter(data.results);
+    const data = await response.json();
+    await setter(data.results ? data.results : "");
   } catch (error) {
     console.log(error);
   }

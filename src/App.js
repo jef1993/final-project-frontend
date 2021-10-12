@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
   trendingMovies,
   nowPlaying,
   topRated,
   upComingMovies,
+  searchMovies,
 } from "./utils/list";
 
 import "./App.css";
@@ -64,6 +66,13 @@ export function App() {
   const queryChangeHandler = (input) => {
     setQuery(input);
     console.log(input);
+  };
+
+  const history = useHistory();
+  const historyBtn = (path) => history.push(`${path}`);
+
+  const searchHandler = () => {
+    historyBtn(`/search/${query}`);
   };
 
   return (
@@ -151,7 +160,7 @@ export function App() {
             <Route path="/movies">
               <DetailsBottom />
             </Route>
-            <Route>
+            <Route path='/search'>
               <SearchResult />
             </Route>
           </Switch>

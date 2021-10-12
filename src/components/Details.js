@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { movieDetails, movieCredits, movieProviders } from "../utils/list";
 import { Provider } from "./Provider";
 import { Icon } from "@iconify/react";
+import bd_ph from "../assets/bd_ph.jpg";
 
 export const DetailsTop = (props) => {
   const movieID = window.location.pathname.split("/")[2];
@@ -30,7 +31,11 @@ export const DetailsBackdrop = (props) => {
   return (
     <div className="banner__backdrop">
       <img
-        src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
+        src={
+          data.backdrop_path
+            ? `https://image.tmdb.org/t/p/original/${data.backdrop_path}`
+            : bd_ph
+        }
         alt="backdrop"
       ></img>
     </div>

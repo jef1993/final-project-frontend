@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
+import { Card } from "../components/Card";
 // import { BrowserRouter as Link } from "react-router-dom";
 
 export const List = ({ fetchFunc, title }) => {
@@ -83,12 +84,7 @@ export const List = ({ fetchFunc, title }) => {
         {data !== ""
           ? data.map((obj, i) => {
               return (
-                <a className="list__item" key={i} href={`/movies/${obj.id}`}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500${obj.poster_path}`}
-                    alt="img"
-                  ></img>
-                </a>
+                <Card index={i} id={obj.id} path={obj.poster_path} name="jks" />
               );
             })
           : ""}
