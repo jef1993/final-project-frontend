@@ -101,7 +101,22 @@ export const movieProviders = async (setter, movieID) => {
       }
     );
     const data = await response.json();
-    await setter(data.results["GB"]);
+    await setter(data.results["GB"] ? data.results["GB"] : "");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const searchMovies = async (setter, query) => {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/search/movie?api_key=b7cb96b2c3e86cd23a777c56ffafe65c&query=${query}`,
+      {
+        method: "GET",
+      }
+    );
+    const data = await response.join();
+    await setter(data.results);
   } catch (error) {
     console.log(error);
   }

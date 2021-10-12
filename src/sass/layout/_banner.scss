@@ -4,17 +4,6 @@
   background-size: cover;
   @include main-grid;
 
-  // @media only screen and (max-width: 900px) {
-  //   grid-template-columns: 10px 1fr 10px;
-  //   grid-row-gap: 10px;
-  //   grid-column-gap: 10px;
-  // }
-
-  // @media only screen and (max-width: 600px) {
-  //   grid-template-rows: repeat(8, 30px);
-  //   grid-row-gap: 5px;
-  //   grid-column-gap: 0px;
-
   &__box {
     grid-area: 4/2 / span 4 / span 1;
     @include flex-center(column);
@@ -84,6 +73,8 @@
 
 .logo {
   @include logo;
+  color: $color-white-1;
+  text-decoration: none;
 }
 
 .search {
