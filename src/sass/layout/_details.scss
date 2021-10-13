@@ -173,7 +173,7 @@
   }
 
   &__btns {
-    grid-area: 4/3 / span 1 / -1;
+    grid-area: 3/3 / span 2 / -1;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -197,13 +197,14 @@
     }
   }
 
-  &__add {
+  &__btn {
     height: 40px;
     width: 40px;
     background-color: transparent;
     border: none;
     transition: all 0.1s;
     padding: 0;
+    margin-top: 10px;
     position: relative;
     cursor: pointer;
 
@@ -224,4 +225,9 @@
     text-align: center;
     color: $color-primary;
   }
+
+}
+
+.error {
+  color: $color-error;
 }

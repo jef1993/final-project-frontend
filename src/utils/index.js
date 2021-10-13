@@ -130,32 +130,35 @@ export const fetchUserMovies = async (curUser, setter) => {
 };
 
 export const pickMovie = async (curUser, movieID) => {
-    try {
-        const response = await fetch(
-            `https://lt-movieapp-backend.herokuapp.com/movies/${curUser}`,{
+  try {
+    const response = await fetch(
+      `https://lt-movieapp-backend.herokuapp.com/movies/${curUser}`,
+      {
         method: "GET",
         headers: { "Content-Type": "application/json" },
-        }
-        )
-        const data = await response.json()
-        const ranMovie = Math.floor(Math.random()*data.length)
-        return data[ranMovie].api_id
-    } catch (error) {
-        console.log(error)
-    }
-}
+      }
+    );
+    const data = await response.json();
+    const ranMovie = Math.floor(Math.random() * data.length);
+    return data[ranMovie].api_id;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export const deleteMovie = async (curUser, title) => {
-    try {
-        const response = await fetch(
-            `https://lt-movieapp-backend.herokuapp.com/movies/${title}/${curUser}`,{
-                method: "DELETE",
-                headers: {"Content-Type": "application/json"},
-            }
-        )
-        const data = await response.json()
-        console.log(data)
-    } catch (error) {
-        console.log(error)
-    }
-}
+export const deleteMovie = async (curUser, title,  setter) => {
+  try {
+    const response = await fetch(
+      `https://lt-movieapp-backend.herokuapp.com/movies/${title}/${curUser}`,
+      {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      }
+    );
+    const data = await response.json();
+    setter(data.message)
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+};

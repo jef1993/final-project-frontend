@@ -104,13 +104,15 @@ export const DetailsBottom = (props) => {
   const addListHandler = async (e) => {
     e.preventDefault();
     await addToList(data, props.curUser, setMessage);
+    document.querySelector(".info__message").classList.remove("error");
     fetchUserMovies(props.curUser);
   };
   const removeListHandler = async (e) => {
-    e.preventDefault()
-    await deleteMovie(props.curUser, data.title)
-    fetchUserMovies(props.curUser)
-  }
+    e.preventDefault();
+    await deleteMovie(props.curUser, data.title, setMessage);
+    document.querySelector(".info__message").classList.add("error");
+    fetchUserMovies(props.curUser);
+  };
   return (
     <div className="info">
       <div className="info__area">
@@ -155,7 +157,7 @@ export const DetailsBottom = (props) => {
             <a className="info__link" href={data.homepage ? data.homepage : ""}>
               <Icon icon="mdi:open-in-new" color="#eaeef0" height="40" />
             </a>
-            <div className="info__add">
+            <div className="info__btn">
               <Icon
                 icon="mdi:plus-box-outline"
                 color="#eaeef0"
@@ -163,12 +165,14 @@ export const DetailsBottom = (props) => {
                 onClick={addListHandler}
               />
             </div>
-            <Icon
+            <div className="info__btn">
+              <Icon
                 icon="mdi:minus-box-outline"
                 color="#eaeef0"
                 height="40"
                 onClick={removeListHandler}
               />
+            </div>
           </div>
           <p className="info__message">{message}</p>
         </div>

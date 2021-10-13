@@ -26,9 +26,41 @@
     grid-template-columns: 36px 1fr 36px;
   }
 
-  &__title {
+  &__title-box {
     grid-area: 1/2 / span 1 / span 1;
+    display: flex;
+  }
+
+  &__title {
     letter-spacing: 3px;
+    padding-right: 10px;
+  }
+
+  &__randomise {
+    align-self: flex-end;
+
+    background-color: transparent;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+    @include flex-center(row);
+
+    &:hover * {
+      transform-origin: center;
+      color: $color-secondary;
+      animation: dice 0.5s forwards;
+      @keyframes dice {
+        0% {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &* {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   &__posters {
