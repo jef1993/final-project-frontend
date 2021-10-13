@@ -19,9 +19,11 @@ import { DetailsBottom } from "./components/Details";
 import { toggleOverlay } from "./functions";
 import { SearchResult } from "./components/SearchResult";
 import { UserList } from "./components/UserList";
+import { Footer } from "./components/Footer";
 
 export function App() {
   const [curUser, setCurUser] = useState("");
+  const [regMessage, setRegMessage] = useState("");
 
   useEffect(() => {
     tokenLogin(setCurUser);
@@ -42,6 +44,7 @@ export function App() {
   const userHandler = () => {
     if (curUser === "") {
       toggleOverlay();
+      setRegMessage("");
     }
   };
 
@@ -54,7 +57,11 @@ export function App() {
   return (
     <Router>
       <div className="App">
-        <Overlay setCurUser={setCurUser} />
+        <Overlay
+          setCurUser={setCurUser}
+          setRegMessage={setRegMessage}
+          regMessage={regMessage}
+        />
         <div className="main">
           <Switch>
             <Route exact path="/">
@@ -110,10 +117,11 @@ export function App() {
               <SearchResult />
             </Route>
             <Route path="/account">
-              <UserList />
+              <UserList curUser={curUser} />
             </Route>
           </Switch>
         </div>
+        <Footer />
       </div>
     </Router>
   );

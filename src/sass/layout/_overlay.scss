@@ -70,6 +70,7 @@
   &__inputs {
     @include flex-center(column);
     min-height: 200px;
+    position: relative;
   }
 
   &__input {
@@ -117,5 +118,12 @@
         letter-spacing: -0.25px;
       }
     }
+  }
+
+  &__message {
+    position: absolute;
+    text-align: center;
+    top: 190px;
+    color: $color-grey;
   }
 }

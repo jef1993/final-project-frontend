@@ -205,6 +205,7 @@
     transition: all 0.1s;
     padding: 0;
     position: relative;
+    cursor: pointer;
 
     & * {
       position: absolute;
@@ -220,6 +221,7 @@
     margin: 0;
     padding: 0 8px;
     font-size: 12px;
-    text-align: end;
+    text-align: center;
+    color: $color-primary;
   }
 }

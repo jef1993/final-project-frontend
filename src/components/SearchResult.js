@@ -4,13 +4,11 @@ import { Card2 } from "./Card";
 
 export const SearchResult = (props) => {
   const query = window.location.pathname.split("/")[2];
-  // const [id, setid] = useState("");
   const [data, setData] = useState("");
 
   useEffect(() => {
-    // setid(props.id);
     searchMovies(setData, query);
-  }, [data, query]);
+  }, []);
 
   return (
     <div className="search-result">

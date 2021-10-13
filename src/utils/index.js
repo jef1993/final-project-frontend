@@ -32,8 +32,9 @@ export const logIn = async (email, password, setter) => {
       }
     );
     const data = await response.json();
-    setter(data.user.username);
+    await setter(data.user.username);
     localStorage.setItem("myToken", data.token);
+    console.log(data);
   } catch (error) {
     console.log(error);
   }
@@ -50,13 +51,19 @@ export const tokenLogin = async (setter) => {
       }
     );
     const data = await response.json();
-    setter(data.username ? data.username : '');
+    await setter(data.username ? data.username : "");
   } catch (error) {
     console.log(error);
   }
 };
 
-export const registerUser = async (username, email, password, setter) => {
+export const registerUser = async (
+  username,
+  email,
+  password,
+  setter,
+  setterTwo
+) => {
   try {
     const response = await fetch(
       "https://lt-movieapp-backend.herokuapp.com/user",
@@ -72,7 +79,9 @@ export const registerUser = async (username, email, password, setter) => {
     );
     const data = await response.json();
     console.log(data);
+    setterTwo(data.message);
     setter(data.newUser.username);
+    localStorage.setItem("myToken", data.token);
   } catch (error) {
     console.log(error);
   }
@@ -96,7 +105,7 @@ export const addToList = async (props, user, setter) => {
       }
     );
     const data = await response.json();
-    setter(data);
+    setter(data.message);
     console.log(data);
   } catch (error) {
     console.log(error);
@@ -113,8 +122,8 @@ export const fetchUserMovies = async (curUser, setter) => {
       }
     );
     const data = await response.json();
-    setter(data);
     console.log(data);
+    setter(data);
   } catch (error) {
     console.log(error);
   }

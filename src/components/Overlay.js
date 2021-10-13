@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { toggleClass, toggleClassAll } from "../functions";
 import { logIn, registerUser } from "../utils";
 
-export const Overlay = ({ setCurUser }) => {
+export const Overlay = ({ setCurUser, regMessage, setRegMessage }) => {
   //   const history = useHistory();
   //   const homeBtn = (path) => history.push(`${path}`);
   const [usernameChange, setUsernameChange] = useState("");
@@ -17,7 +17,13 @@ export const Overlay = ({ setCurUser }) => {
 
   const registerHandler = (e) => {
     e.preventDefault();
-    registerUser(usernameChange, emailChange, passwordChange, setCurUser);
+    registerUser(
+      usernameChange,
+      emailChange,
+      passwordChange,
+      setCurUser,
+      setRegMessage
+    );
   };
 
   return (
@@ -53,6 +59,7 @@ export const Overlay = ({ setCurUser }) => {
                   setPasswordChange(e.target.value);
                 }}
               ></input>
+              <p className="overlay__message">{}</p>
             </div>
 
             <button className="overlay__btn">Sign In</button>
@@ -96,6 +103,7 @@ export const Overlay = ({ setCurUser }) => {
                   setPasswordChange(e.target.value);
                 }}
               ></input>
+              <p className="overlay__message">{regMessage}</p>
             </div>
 
             <button className="overlay__btn">Register</button>
