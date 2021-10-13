@@ -19,7 +19,7 @@ export const SearchResult = (props) => {
       <ul className="search-result__posters">
         {data !== ""
           ? data.map((obj, i) => {
-              return <Card2 index={i} id={obj.id} path={obj.poster_path} />;
+              return <Card2 key={i} id={obj.id} path={obj.poster_path} />;
             })
           : ""}
       </ul>

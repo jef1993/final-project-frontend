@@ -58,7 +58,7 @@ export const UserList = () => {
       <ul className="search-result__posters">
         {!data.message
           ? testData.map((obj, i) => {
-              return <Card2 index={i} id={obj.api_id} path={obj.poster_path} />;
+              return <Card2 key={i} id={obj.api_id} path={obj.poster_path} />;
             })
           : ""}
       </ul>

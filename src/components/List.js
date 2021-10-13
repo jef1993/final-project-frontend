@@ -84,7 +84,7 @@ export const List = ({ fetchFunc, title }) => {
         {data !== ""
           ? data.map((obj, i) => {
               return (
-                <Card index={i} id={obj.id} path={obj.poster_path} name="jks" />
+                <Card key={i} id={obj.id} path={obj.poster_path} name="jks" />
               );
             })
           : ""}

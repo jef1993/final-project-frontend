@@ -47,6 +47,8 @@ export function App() {
 
   const logoutHandler = () => {
     setCurUser("");
+    localStorage.removeItem("myToken");
+    console.log(curUser);
   };
 
   return (

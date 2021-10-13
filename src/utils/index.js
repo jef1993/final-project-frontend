@@ -50,7 +50,7 @@ export const tokenLogin = async (setter) => {
       }
     );
     const data = await response.json();
-    setter(data.username);
+    setter(data.username ? data.username : '');
   } catch (error) {
     console.log(error);
   }
