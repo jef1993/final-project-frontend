@@ -54,6 +54,14 @@
     text-transform: capitalize;
   }
 
+  &:required {
+    outline: none;
+    border: 2px solid transparent;
+    background-color: rgba($color-black-1, 0.5);
+    border-bottom: 2px solid $color-primary;
+    color: $color-white-2;
+  }
+
   &:focus {
     outline: none;
     border: 2px solid transparent;
