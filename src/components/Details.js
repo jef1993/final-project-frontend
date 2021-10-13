@@ -11,7 +11,7 @@ export const DetailsTop = (props) => {
 
   useEffect(() => {
     movieDetails(setData, movieID);
-  }, [setData, movieID]);
+  }, [setData, movieID, props.curUser]);
 
   return (
     <div className="banner__box details">
@@ -48,6 +48,7 @@ export const DetailsBottom = (props) => {
   const [data, setData] = useState("");
   const [credits, setCredits] = useState("");
   const [providers, setProviders] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     movieDetails(setData, movieID);
@@ -102,7 +103,7 @@ export const DetailsBottom = (props) => {
   const addListHandler = async (e) => {
     e.preventDefault();
     await addToList(data, props.curUser);
-    fetchUserMovies(props.curUser);
+    fetchUserMovies(props.curUser, setMessage);
   };
   return (
     <div className="info">
@@ -157,6 +158,7 @@ export const DetailsBottom = (props) => {
               />
             </div>
           </div>
+          <p className="info__message">{message.message}</p>
         </div>
       </div>
     </div>

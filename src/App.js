@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import {
@@ -8,6 +8,8 @@ import {
   upComingMovies,
 } from "./utils/list";
 
+import { tokenLogin } from "./utils/index";
+
 import "./App.css";
 
 import { Banner } from "./components/Banner";
@@ -16,10 +18,14 @@ import { List } from "./components/List";
 import { DetailsBottom } from "./components/Details";
 import { toggleOverlay } from "./functions";
 import { SearchResult } from "./components/SearchResult";
+import { UserList } from "./components/UserList";
 
 export function App() {
   const [curUser, setCurUser] = useState("");
-  //   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    tokenLogin(setCurUser);
+  }, []);
 
   const navSwitch = () => {
     const obj = {};
@@ -54,7 +60,7 @@ export function App() {
                 bgImg="bg-1"
                 iconName={navSwitch().iconName}
                 linkTo={navSwitch().path}
-                userNameTop={curUser}
+                username={curUser}
                 navBtn={userHandler}
               />
             </Route>
@@ -63,7 +69,7 @@ export function App() {
                 bgImg="bg-1"
                 iconName={navSwitch().iconName}
                 linkTo={navSwitch().path}
-                userNameTop={curUser}
+                username={curUser}
                 navBtn={userHandler}
               />
             </Route>
@@ -71,7 +77,7 @@ export function App() {
               <Banner
                 bgImg="bg-2"
                 iconName="backspace-outline"
-                userName={curUser}
+                username={curUser}
                 resetUser={() => {
                   logoutHandler();
                 }}
@@ -81,12 +87,10 @@ export function App() {
             <Route path="/movies">
               <Banner
                 bgImg="banner__backdrop"
-                iconName="backspace-outline"
-                userName={curUser}
-                resetUser={() => {
-                  logoutHandler();
-                }}
-                linkTo="/"
+                iconName={navSwitch().iconName}
+                linkTo={navSwitch().path}
+                navBtn={userHandler}
+                username={curUser}
               />
             </Route>
           </Switch>
@@ -98,10 +102,13 @@ export function App() {
               <List fetchFunc={upComingMovies} title="upcoming" />
             </Route>
             <Route path="/movies">
-              <DetailsBottom />
+              <DetailsBottom curUser={curUser} />
             </Route>
-            <Route>
+            <Route path="/search">
               <SearchResult />
+            </Route>
+            <Route path="/account">
+              <UserList />
             </Route>
           </Switch>
         </div>

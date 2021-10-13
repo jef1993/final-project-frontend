@@ -118,11 +118,12 @@
 
 .menu {
   @include flex-center(row);
-  justify-content: space-between;
+  justify-content: center;
   width: 400px;
 
   &__item {
     cursor: pointer;
+    margin: 0 50px;
 
     & * {
       transition: all 0.1s;

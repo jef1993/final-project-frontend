@@ -42,12 +42,15 @@ export const logIn = async (email, password, setter) => {
 export const tokenLogin = async (setter) => {
   try {
     const token = localStorage.getItem("myToken");
-    const response = await fetch("http://localhost:5000/user", {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    const response = await fetch(
+      "https://lt-movieapp-backend.herokuapp.com/user",
+      {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
     const data = await response.json();
-    setter(data.user);
+    setter(data.username);
   } catch (error) {
     console.log(error);
   }
@@ -75,7 +78,7 @@ export const registerUser = async (username, email, password, setter) => {
   }
 };
 
-export const addToList = async (props, user) => {
+export const addToList = async (props, user, setter) => {
   try {
     const response = await fetch(
       `https://lt-movieapp-backend.herokuapp.com/movies/${user}`,
@@ -93,13 +96,14 @@ export const addToList = async (props, user) => {
       }
     );
     const data = await response.json();
+    setter(data);
     console.log(data);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const fetchUserMovies = async (curUser) => {
+export const fetchUserMovies = async (curUser, setter) => {
   try {
     const response = await fetch(
       `https://lt-movieapp-backend.herokuapp.com/movies/${curUser}`,
@@ -109,6 +113,7 @@ export const fetchUserMovies = async (curUser) => {
       }
     );
     const data = await response.json();
+    setter(data);
     console.log(data);
   } catch (error) {
     console.log(error);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
@@ -21,7 +21,7 @@ export const Banner = (props) => {
           MOVILIST
         </Link>
         <div className="nav">
-          <h3 className="nav__user">{props.userNameTop}</h3>
+          <h3 className="nav__user">{props.username}</h3>
           <Link className="nav__link" to={props.linkTo} onClick={props.navBtn}>
             <Icon
               className="nav__icon"
@@ -41,7 +41,7 @@ export const Banner = (props) => {
           <MovieSearch queryChange={props.queryChange} query={props.query} />
         </Route>
         <Route path="/account">
-          <UserMenu userName={props.userName} resetUser={props.resetUser} />
+          <UserMenu userName={props.username} resetUser={props.resetUser} />
         </Route>
         <Route>
           <DetailsTop />

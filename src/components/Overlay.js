@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { useHistory } from "react-router-dom";
 import { toggleClass, toggleClassAll } from "../functions";
-import { logIn } from "../utils";
+import { logIn, registerUser } from "../utils";
 
 export const Overlay = ({ setCurUser }) => {
   //   const history = useHistory();
@@ -17,6 +17,7 @@ export const Overlay = ({ setCurUser }) => {
 
   const registerHandler = (e) => {
     e.preventDefault();
+    registerUser(usernameChange, emailChange, passwordChange, setCurUser);
   };
 
   return (

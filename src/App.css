@@ -241,11 +241,12 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 400px;
 }
 .menu__item {
   cursor: pointer;
+  margin: 0 50px;
 }
 .menu__item * {
   transition: all 0.1s;
@@ -483,7 +484,7 @@ body {
   display: grid;
   border: 2px solid #242527;
   box-sizing: border-box;
-  grid-template-rows: auto repeat(2, 3fr) 5fr;
+  grid-template-rows: auto repeat(2, 3fr) 5fr 20px;
   grid-template-columns: 2fr 3fr 48px;
   padding: 20px 20px 0 20px;
 }
@@ -545,21 +546,26 @@ body {
   grid-area: 3/2/span 1/span 1;
 }
 .info__avaliable {
-  grid-area: 4/1/-1/span 2;
+  grid-area: 4/1/span 1/span 2;
   overflow: hidden;
 }
 .info__btns {
-  grid-area: 2/3/-1/-1;
+  grid-area: 4/3/span 1/-1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  align-items: center;
   padding: 0;
 }
 .info__link {
   height: 40px;
   width: 40px;
   transition: all 0.1s;
-  margin-top: 10px;
+  padding: 0;
+  position: relative;
+}
+.info__link * {
+  position: absolute;
 }
 .info__link:hover * {
   color: #ecb10c;
@@ -570,9 +576,21 @@ body {
   background-color: transparent;
   border: none;
   transition: all 0.1s;
+  padding: 0;
+  position: relative;
+}
+.info__add * {
+  position: absolute;
 }
 .info__add:hover * {
   color: #ecb10c;
+}
+.info__message {
+  grid-area: 5/1/-1/-1;
+  margin: 0;
+  padding: 0 8px;
+  font-size: 12px;
+  text-align: end;
 }
 
 .list {
