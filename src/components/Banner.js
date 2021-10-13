@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { MovieSearch } from "./MovieSearch";
 import { UserMenu } from "./UserMenu";

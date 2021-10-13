@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchUserMovies } from "../utils/index";
+import { fetchUserMovies, pickMovie } from "../utils/index";
+import {useHistory} from "react-router-dom"
 import { Card2 } from "./Card";
 
 export const UserList = (props) => {
@@ -8,7 +9,15 @@ export const UserList = (props) => {
 
   useEffect(() => {
     fetchUserMovies(user, setData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const history = useHistory()
+  const randomHandler = async () => {
+    history.push({
+      pathname: `/movies/${await pickMovie(props.curUser)}`
+    })
+  } 
 
   return (
     <div className="search-result">
@@ -22,6 +31,7 @@ export const UserList = (props) => {
             })
           : ""}
       </ul>
+      <button onClick = {randomHandler}>Pick Movie</button>
     </div>
   );
 };

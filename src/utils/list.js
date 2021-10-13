@@ -1,5 +1,5 @@
 // require("dotenv").config();
-const movieAPIKey = process.env.REACT_APP_API_KEY;
+// const movieAPIKey = process.env.REACT_APP_API_KEY;
 
 export const trendingMovies = async (setter) => {
   try {

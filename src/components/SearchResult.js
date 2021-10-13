@@ -8,6 +8,7 @@ export const SearchResult = (props) => {
 
   useEffect(() => {
     searchMovies(setData, query);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

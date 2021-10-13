@@ -16,6 +16,7 @@ export const List = ({ fetchFunc, title }) => {
 
   useEffect(() => {
     getMethod();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const movePage = (el, direction, distance) => {

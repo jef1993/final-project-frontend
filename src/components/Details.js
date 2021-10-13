@@ -3,7 +3,7 @@ import { movieDetails, movieCredits, movieProviders } from "../utils/list";
 import { Provider } from "./Provider";
 import { Icon } from "@iconify/react";
 import bd_ph from "../assets/bd_ph.jpg";
-import { addToList, fetchUserMovies } from "../utils";
+import { addToList, fetchUserMovies, deleteMovie } from "../utils";
 
 export const DetailsTop = (props) => {
   const movieID = window.location.pathname.split("/")[2];
@@ -11,6 +11,7 @@ export const DetailsTop = (props) => {
 
   useEffect(() => {
     movieDetails(setData, movieID);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -105,6 +106,11 @@ export const DetailsBottom = (props) => {
     await addToList(data, props.curUser, setMessage);
     fetchUserMovies(props.curUser);
   };
+  const removeListHandler = async (e) => {
+    e.preventDefault()
+    await deleteMovie(props.curUser, data.title)
+    fetchUserMovies(props.curUser)
+  }
   return (
     <div className="info">
       <div className="info__area">
@@ -157,6 +163,12 @@ export const DetailsBottom = (props) => {
                 onClick={addListHandler}
               />
             </div>
+            <Icon
+                icon="mdi:minus-box-outline"
+                color="#eaeef0"
+                height="40"
+                onClick={removeListHandler}
+              />
           </div>
           <p className="info__message">{message}</p>
         </div>
