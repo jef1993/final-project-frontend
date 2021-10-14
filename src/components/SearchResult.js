@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { searchMovies } from "../utils/list";
 import { Card2 } from "./Card";
 
-export const SearchResult = (props) => {
+export const SearchResult = () => {
   const query = window.location.pathname.split("/").slice(-1);
   const [data, setData] = useState("");
 

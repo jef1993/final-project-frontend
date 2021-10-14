@@ -23,7 +23,7 @@ export const DetailsTop = (props) => {
 };
 
 export const DetailsBackdrop = (props) => {
-  const movieID = window.location.pathname.split("/")[2];
+  const movieID = window.location.pathname.split("/").slice(-1);
   const [data, setData] = useState("");
 
   useEffect(() => {
@@ -45,7 +45,7 @@ export const DetailsBackdrop = (props) => {
 };
 
 export const DetailsBottom = (props) => {
-  const movieID = window.location.pathname.split("/")[2];
+  const movieID = window.location.pathname.split("/").slice(-1);
   const [data, setData] = useState("");
   const [credits, setCredits] = useState("");
   const [providers, setProviders] = useState("");
