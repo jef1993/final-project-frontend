@@ -5,12 +5,11 @@ import { Icon } from "@iconify/react";
 import bd_ph from "../assets/bd_ph.jpg";
 import { addToList, fetchUserMovies, deleteMovie } from "../utils";
 
-
 export const DetailsTop = (props) => {
   const [data, setData] = useState("");
 
   useEffect(() => {
-    const movieID = window.location.pathname.split("/")[2];
+    const movieID = window.location.pathname.split("/").slice(-1);
     movieDetails(setData, movieID);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -27,7 +26,7 @@ export const DetailsBackdrop = (props) => {
   const [data, setData] = useState("");
 
   useEffect(() => {
-    const movieID = window.location.pathname.split("/")[2];
+    const movieID = window.location.pathname.split("/").slice(-1);
     movieDetails(setData, movieID);
   }, []);
 
@@ -52,7 +51,7 @@ export const DetailsBottom = (props) => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    const movieID = window.location.pathname.split("/")[2];
+    const movieID = window.location.pathname.split("/").slice(-1);
     movieDetails(setData, movieID);
     movieCredits(setCredits, movieID);
     movieProviders(setProviders, movieID);
