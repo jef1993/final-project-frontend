@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import card_ph from "../assets/card_ph.png";
 
 export const Card = (props) => {

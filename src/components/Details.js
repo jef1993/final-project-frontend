@@ -6,10 +6,10 @@ import bd_ph from "../assets/bd_ph.jpg";
 import { addToList, fetchUserMovies, deleteMovie } from "../utils";
 
 export const DetailsTop = (props) => {
-  const movieID = window.location.pathname.split("/")[2];
   const [data, setData] = useState("");
 
   useEffect(() => {
+    const movieID = window.location.pathname.split("/")[2];
     movieDetails(setData, movieID);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -23,12 +23,12 @@ export const DetailsTop = (props) => {
 };
 
 export const DetailsBackdrop = (props) => {
-  const movieID = window.location.pathname.split("/")[2];
   const [data, setData] = useState("");
 
   useEffect(() => {
+    const movieID = window.location.pathname.split("/")[2];
     movieDetails(setData, movieID);
-  }, [setData, movieID]);
+  }, []);
 
   return (
     <div className="banner__backdrop">
@@ -45,17 +45,17 @@ export const DetailsBackdrop = (props) => {
 };
 
 export const DetailsBottom = (props) => {
-  const movieID = window.location.pathname.split("/")[2];
   const [data, setData] = useState("");
   const [credits, setCredits] = useState("");
   const [providers, setProviders] = useState("");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    const movieID = window.location.pathname.split("/")[2];
     movieDetails(setData, movieID);
     movieCredits(setCredits, movieID);
     movieProviders(setProviders, movieID);
-  }, [setData, setCredits, setProviders, movieID]);
+  }, []);
 
   const getRuntime = () => {
     const runtime = Number(data.runtime);
