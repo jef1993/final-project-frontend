@@ -3,7 +3,7 @@ import { searchMovies } from "../utils/list";
 import { Card2 } from "./Card";
 
 export const SearchResult = (props) => {
-  const query = window.location.pathname.split("/")[2];
+  const query = window.location.pathname.split("/").splice(-1);
   const [data, setData] = useState("");
 
   useEffect(() => {
