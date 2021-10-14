@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/jef1993/final-project-frontend/static/css/main.1aaf017d.chunk.css",
+    "main.js": "/jef1993/final-project-frontend/static/js/main.3386de7b.chunk.js",
+    "main.js.map": "/jef1993/final-project-frontend/static/js/main.3386de7b.chunk.js.map",
+    "runtime-main.js": "/jef1993/final-project-frontend/static/js/runtime-main.b9eb2963.js",
+    "runtime-main.js.map": "/jef1993/final-project-frontend/static/js/runtime-main.b9eb2963.js.map",
+    "static/js/2.17726291.chunk.js": "/jef1993/final-project-frontend/static/js/2.17726291.chunk.js",
+    "static/js/2.17726291.chunk.js.map": "/jef1993/final-project-frontend/static/js/2.17726291.chunk.js.map",
+    "index.html": "/jef1993/final-project-frontend/index.html",
+    "static/css/main.1aaf017d.chunk.css.map": "/jef1993/final-project-frontend/static/css/main.1aaf017d.chunk.css.map",
+    "static/js/2.17726291.chunk.js.LICENSE.txt": "/jef1993/final-project-frontend/static/js/2.17726291.chunk.js.LICENSE.txt",
+    "static/media/bd_ph.16c7b02c.jpg": "/jef1993/final-project-frontend/static/media/bd_ph.16c7b02c.jpg",
+    "static/media/App.css": "/jef1993/final-project-frontend/static/media/bg-2.b7eb71d5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b9eb2963.js",
+    "static/js/2.17726291.chunk.js",
+    "static/css/main.1aaf017d.chunk.css",
+    "static/js/main.3386de7b.chunk.js"
+  ]
+}
