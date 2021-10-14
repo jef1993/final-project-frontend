@@ -6,7 +6,7 @@ import bd_ph from "../assets/bd_ph.jpg";
 import { addToList, fetchUserMovies, deleteMovie } from "../utils";
 
 export const DetailsTop = (props) => {
-  const movieID = window.location.pathname.split("/")[2];
+  const movieID = window.location.pathname.split("/").slice(-1);
   const [data, setData] = useState("");
 
   useEffect(() => {
