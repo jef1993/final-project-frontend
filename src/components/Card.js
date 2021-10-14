@@ -25,11 +25,16 @@ export const Card = (props) => {
 };
 
 export const Card2 = (props) => {
+  const history = useHistory();
+  const historyBtn = (path) => history.push(`${path}`);
   return (
-    <a
-      className="search-result__item"
+    <div
+      className="list__item"
       key={props.key}
-      href={`/movies/${props.id}`}
+      onClick={(e) => {
+        e.preventDefault();
+        historyBtn(`/movies/${props.id}`);
+      }}
     >
       <img
         src={
@@ -37,7 +42,7 @@ export const Card2 = (props) => {
         }
         alt="img"
       ></img>
-    </a>
+    </div>
   );
 };
 
