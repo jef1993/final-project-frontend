@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useHistory } from "react-router-dom";
 
-export const MovieSearch = (props) => {
+export const MovieSearch = () => {
   const history = useHistory();
   const historyBtn = (path) => history.push(`${path}`);
 
