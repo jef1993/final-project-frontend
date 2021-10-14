@@ -24,6 +24,7 @@ import { Footer } from "./components/Footer";
 export function App() {
   const [curUser, setCurUser] = useState("");
   const [regMessage, setRegMessage] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     tokenLogin(setCurUser);
@@ -53,6 +54,8 @@ export function App() {
     localStorage.removeItem("myToken");
     console.log(curUser);
   };
+
+
 
   return (
     <Router>
@@ -114,7 +117,7 @@ export function App() {
               <DetailsBottom curUser={curUser} />
             </Route>
             <Route path="/search">
-              <SearchResult />
+              <SearchResult  />
             </Route>
             <Route path="/account">
               <UserList curUser={curUser} />
