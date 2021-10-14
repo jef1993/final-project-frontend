@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/jef1993/final-project-frontend/static/css/main.1aaf017d.chunk.css",
-    "main.js": "/jef1993/final-project-frontend/static/js/main.216371bb.chunk.js",
-    "main.js.map": "/jef1993/final-project-frontend/static/js/main.216371bb.chunk.js.map",
-    "runtime-main.js": "/jef1993/final-project-frontend/static/js/runtime-main.b9eb2963.js",
-    "runtime-main.js.map": "/jef1993/final-project-frontend/static/js/runtime-main.b9eb2963.js.map",
-    "static/js/2.17726291.chunk.js": "/jef1993/final-project-frontend/static/js/2.17726291.chunk.js",
-    "static/js/2.17726291.chunk.js.map": "/jef1993/final-project-frontend/static/js/2.17726291.chunk.js.map",
-    "index.html": "/jef1993/final-project-frontend/index.html",
-    "static/css/main.1aaf017d.chunk.css.map": "/jef1993/final-project-frontend/static/css/main.1aaf017d.chunk.css.map",
-    "static/js/2.17726291.chunk.js.LICENSE.txt": "/jef1993/final-project-frontend/static/js/2.17726291.chunk.js.LICENSE.txt",
-    "static/media/bd_ph.16c7b02c.jpg": "/jef1993/final-project-frontend/static/media/bd_ph.16c7b02c.jpg",
-    "static/media/App.css": "/jef1993/final-project-frontend/static/media/bg-2.b7eb71d5.jpg"
+    "main.css": "/final-project-frontend/static/css/main.e34418e3.chunk.css",
+    "main.js": "/final-project-frontend/static/js/main.216371bb.chunk.js",
+    "main.js.map": "/final-project-frontend/static/js/main.216371bb.chunk.js.map",
+    "runtime-main.js": "/final-project-frontend/static/js/runtime-main.6411a7a8.js",
+    "runtime-main.js.map": "/final-project-frontend/static/js/runtime-main.6411a7a8.js.map",
+    "static/js/2.17726291.chunk.js": "/final-project-frontend/static/js/2.17726291.chunk.js",
+    "static/js/2.17726291.chunk.js.map": "/final-project-frontend/static/js/2.17726291.chunk.js.map",
+    "index.html": "/final-project-frontend/index.html",
+    "static/css/main.e34418e3.chunk.css.map": "/final-project-frontend/static/css/main.e34418e3.chunk.css.map",
+    "static/js/2.17726291.chunk.js.LICENSE.txt": "/final-project-frontend/static/js/2.17726291.chunk.js.LICENSE.txt",
+    "static/media/bd_ph.16c7b02c.jpg": "/final-project-frontend/static/media/bd_ph.16c7b02c.jpg",
+    "static/media/App.css": "/final-project-frontend/static/media/bg-2.b7eb71d5.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b9eb2963.js",
+    "static/js/runtime-main.6411a7a8.js",
     "static/js/2.17726291.chunk.js",
-    "static/css/main.1aaf017d.chunk.css",
+    "static/css/main.e34418e3.chunk.css",
     "static/js/main.216371bb.chunk.js"
   ]
 }
