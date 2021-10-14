@@ -5,6 +5,7 @@ import { Icon } from "@iconify/react";
 import bd_ph from "../assets/bd_ph.jpg";
 import { addToList, fetchUserMovies, deleteMovie } from "../utils";
 
+
 export const DetailsTop = (props) => {
   const [data, setData] = useState("");
 
