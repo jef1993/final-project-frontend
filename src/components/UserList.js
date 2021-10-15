@@ -11,7 +11,7 @@ export const UserList = (props) => {
   useEffect(() => {
     fetchUserMovies(user, setData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data]);
 
   const history = useHistory();
   const randomHandler = async () => {
