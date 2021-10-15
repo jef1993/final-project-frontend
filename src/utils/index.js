@@ -79,9 +79,9 @@ export const registerUser = async (
     );
     const data = await response.json();
     console.log(data);
+    localStorage.setItem("myToken", data.token);
     setterTwo(data.message);
     setter(data.newUser.username);
-    localStorage.setItem("myToken", data.token);
   } catch (error) {
     console.log(error);
   }
@@ -146,7 +146,7 @@ export const pickMovie = async (curUser, movieID) => {
   }
 };
 
-export const deleteMovie = async (curUser, title,  setter) => {
+export const deleteMovie = async (curUser, title, setter) => {
   try {
     const response = await fetch(
       `https://lt-movieapp-backend.herokuapp.com/movies/${title}/${curUser}`,
@@ -156,7 +156,7 @@ export const deleteMovie = async (curUser, title,  setter) => {
       }
     );
     const data = await response.json();
-    setter(data.message)
+    setter(data.message);
     console.log(data);
   } catch (error) {
     console.log(error);
