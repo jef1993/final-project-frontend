@@ -13,8 +13,9 @@ export const SearchResult = (props) => {
 
   return (
     <div className="search-result">
-      {/* <div className='search-result__title-box'></div> */}
-      <h3 className="search-result__title-box">SEARCH RESULT:</h3>
+      <div className="search-result__title-box">
+        <h3 className="search-result__title">SEARCH RESULT:</h3>
+      </div>
 
       <ul className="search-result__posters">
         {data !== ""

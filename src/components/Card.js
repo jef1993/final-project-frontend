@@ -29,7 +29,7 @@ export const Card2 = (props) => {
   const historyBtn = (path) => history.push(`${path}`);
   return (
     <div
-      className="list__item"
+      className="search-result__item"
       key={props.key}
       onClick={(e) => {
         e.preventDefault();
