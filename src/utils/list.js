@@ -1,10 +1,11 @@
 // require("dotenv").config();
-// const movieAPIKey = process.env.REACT_APP_API_KEY;
+const movieAPIKey = process.env.REACT_APP_API_KEY;
+console.log(movieAPIKey);
 
 export const trendingMovies = async (setter) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/week?api_key=b7cb96b2c3e86cd23a777c56ffafe65c`,
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=${movieAPIKey}`,
 
       {
         method: "GET",
@@ -20,7 +21,7 @@ export const trendingMovies = async (setter) => {
 export const nowPlaying = async (setter) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=b7cb96b2c3e86cd23a777c56ffafe65c&language=en-GB`,
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${movieAPIKey}&language=en-GB`,
       {
         method: "GET",
       }
@@ -35,7 +36,7 @@ export const nowPlaying = async (setter) => {
 export const topRated = async (setter) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=b7cb96b2c3e86cd23a777c56ffafe65c&region=GB`,
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${movieAPIKey}&region=GB`,
       {
         method: "GET",
       }
@@ -50,7 +51,7 @@ export const topRated = async (setter) => {
 export const upComingMovies = async (setter) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=b7cb96b2c3e86cd23a777c56ffafe65c&region=GB`,
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${movieAPIKey}&region=GB`,
       {
         method: "GET",
       }
@@ -65,7 +66,7 @@ export const upComingMovies = async (setter) => {
 export const movieDetails = async (setter, movieID) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}?api_key=b7cb96b2c3e86cd23a777c56ffafe65c`,
+      `https://api.themoviedb.org/3/movie/${movieID}?api_key=${movieAPIKey}`,
       {
         method: "GET",
       }
@@ -80,7 +81,7 @@ export const movieDetails = async (setter, movieID) => {
 export const movieCredits = async (setter, movieID) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=b7cb96b2c3e86cd23a777c56ffafe65c`,
+      `https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${movieAPIKey}`,
       {
         method: "GET",
       }
@@ -95,7 +96,7 @@ export const movieCredits = async (setter, movieID) => {
 export const movieProviders = async (setter, movieID) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieID}/watch/providers?api_key=b7cb96b2c3e86cd23a777c56ffafe65c`,
+      `https://api.themoviedb.org/3/movie/${movieID}/watch/providers?api_key=${movieAPIKey}`,
       {
         method: "GET",
       }
@@ -110,7 +111,7 @@ export const movieProviders = async (setter, movieID) => {
 export const searchMovies = async (setter, query) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=b7cb96b2c3e86cd23a777c56ffafe65c&query=${query}`,
+      `https://api.themoviedb.org/3/search/movie?api_key=${movieAPIKey}&query=${query}`,
       {
         method: "GET",
       }
