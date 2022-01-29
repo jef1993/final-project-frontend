@@ -1,4 +1,6 @@
-const tmdbKey = process.env.TMDB_KEY;
+const tmdbKey = process.env.TMDB_KEY
+  ? process.env.TMDB_KEY
+  : `b7cb96b2c3e86cd23a777c56ffafe65c`;
 
 export const trendingMovies = async (setter) => {
   try {
