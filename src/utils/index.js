@@ -1,4 +1,5 @@
 const Rest_Api = process.env.REACT_APP_REST_API;
+console.log(Rest_Api);
 
 export const fetchRequest = async (username, password, setter) => {
   try {
