@@ -1,13 +1,14 @@
-// require("dotenv").config();
 const movieAPIKey = process.env.REACT_APP_API_KEY
   ? process.env.REACT_APP_API_KEY
   : `b7cb96b2c3e86cd23a777c56ffafe65c`;
 console.log(movieAPIKey);
 
+const tmdbKey = process.env.TMDB_KEY;
+
 export const trendingMovies = async (setter) => {
   try {
     const response = await fetch(
-      `https://api.themoviedb.org/3/trending/movie/week?api_key=${movieAPIKey}`,
+      `https://api.themoviedb.org/3/trending/movie/week?api_key=${tmdbKey}`,
 
       {
         method: "GET",

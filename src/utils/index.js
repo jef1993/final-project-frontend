@@ -3,7 +3,7 @@ console.log(Rest_Api);
 
 export const fetchRequest = async (username, password, setter) => {
   try {
-    const response = await fetch(`${Rest_Api}`, {
+    const response = await fetch(`https://lt-movieapp-backend.herokuapp.com`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
